@@ -37,7 +37,7 @@ shinyUI(fluidPage(
                         step = 1),
 
             h5("The source code (ui.R and server.R) is available here: ", a("GitHub", href="http://github.com/alexcipro/Developing-Data-Products")),
-            h5("The documentation is available here: ", a("Rpubs", href="http://rpubs.com/")),
+            h5("The documentation is available here: ", a("Rpubs", href="http://rpubs.com/alexcipro/airquality")),
             p("Author: alexcipro")
     ),
 
