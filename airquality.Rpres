@@ -1,0 +1,46 @@
+New York Air Quality Measurements using 'airquality' from 'datasets' R package
+========================================================
+author: alexcipro
+date: 2016-01-31
+autosize: true
+
+Shiny web application - Description
+========================================================
+
+This is a Shiny web application regarding coursera Developing Data Products: Course Project: Shiny Application.
+<https://alexcipro.shinyapps.io/airquality/>.
+
+- Database: New York Air Quality Measurements
+- Variables: Ozone Solar.R Wind Temp Month Day
+
+This is the tool to help analyze correlation between Ozone and Solar.R. You can choose to show the coloured data by Month with a click on respective checkbox. The Regression Line will show the 95% confidence interval. Also you can choose differect value of the mean which will trigger to auto-calcuate the corresponding Mean Squared Error by playing around the scroll bar of Ozone at the mean.
+
+Database Format
+========================================================
+
+A data frame with 154 observations on 6 variables:
+
+- [,1]	Ozone	numeric	Ozone (ppb)
+- [,2]	Solar.R	numeric	Solar R (lang)
+- [,3]	Wind	numeric	Wind (mph)
+- [,4]	Temp	numeric	Temperature (degrees F)
+- [,5]	Month	numeric	Month (1--12)
+- [,6]	Day	numeric	Day of month (1--31)
+
+Summary of database
+========================================================
+
+```{r}
+summary(airquality)
+```
+
+Regression Line Ozone vs. Solar.R
+========================================================
+
+```{r, echo=FALSE}
+library(ggplot2)
+mydata <- na.omit(airquality[order(airquality$Month), ])
+ggplot(mydata, aes(x=Solar.R, y=Ozone, color=Month)) +
+                                geom_point(shape=1) +
+                                geom_smooth(method=lm)
+```
